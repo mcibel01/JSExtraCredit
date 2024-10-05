@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function problem1(){
+            let countdownText = "";
+            for (let i = 40; i >= 10; i -= 2) {
+                countdownText += i + (i > 10 ? ", " : "");
+            }
+
+            alert("Countdown: " + countdownText);
+            document.getElementById("countdown").innerText = 
+                "Countdown: " + countdownText;
+        }
+
+        function problem2(){
+            let sum = 0;
+            while (sum < 20) {
+                let input = prompt("Enter a number from 1-19:");
+                let number = parseFloat(input); 
+                if (!isNaN(number)) {
+                    sum += number;
+                } else {
+                    alert("Please enter a valid number");
+                }
+            }
+            
+            alert("The sum of the numbers is " + sum);
+            document.getElementById("sum").innerText = 
+                "The sum of the numbers is " + sum;
+        }
+
+        function problem3(){
+            let sum = 0; 
+            let numbers = []; 
+            
+            while (sum <= 20) {
+                let input = prompt("Enter a number from 1-19:");
+                let number = parseFloat(input); 
+                
+                if (!isNaN(number)) {
+                    numbers.push(number); 
+                    sum += number; 
+                } else {
+                    alert("Please enter a valid number");
+                }
+            }
+
+            alert("You entered the following numbers: " + numbers.join(", ")
+                + ". These numbers sum to " + sum);
+            document.getElementById("nums").innerText = 
+                "You entered the numbers: " + numbers.join(", ") 
+                + ". These numbers sum to " + sum;
+        }
+        
+        function problem4(){
+            var songs = {
+                "Someday": "The Strokes",
+                "Why": "Dominic Fike",
+                "Freaks": "Surf Curse",
+                "Sailor Song": "Gigi Perez",
+                "Calling After Me": "Wallows"
+            }
+
+            let message = "Songs and their Artists:\n";
+            for (let song in songs) {
+                message += `${song} - ${songs[song]}\n`;
+            }
+
+            alert(message);
+            document.getElementById("songs").innerText = message;
+        }
+
+        function problem5(){
+            var songs = {
+                "Someday": "The Strokes",
+                "Why": "Dominic Fike",
+                "Freaks": "Surf Curse",
+                "Sailor Song": "Gigi Perez",
+                "Calling After Me": "Wallows"
+            }
+
+            band = prompt("Enter the name of one of the previous bands: ");
+            let message = band + " songs:\n";
+            for (let song in songs) {
+                if (songs[song] == band){
+                    message += `${song}\n`;
+                }
+            }
+            alert(message);
+            document.getElementById("band").innerText = message;
+        }
+
+        function windowPrint(){
+            problem1();
+            problem2();
+            problem3();
+            problem4();
+            problem5();
+        }
+    </script>
+</head>
+<body>
+    <h1>Extra credit Javascript functions</h1>
+    <hr />
+    <button onclick="windowPrint()">Click to run functions</button>
+    <h2>Problem 1: </h2>
+    <p id = "countdown"></p>
+
+    <h2>Problem 2: </h2>
+    <p id = "sum"></p>
+
+    <h2>Problem 3: </h2>
+    <p id = "nums"></p>
+
+    <h2>Problem 4: </h2>
+    <p id = "songs"></p>
+
+    <h2>Problem 5: </h2>
+    <p id = "band"></p>
+</body>
+</html>
